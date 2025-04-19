@@ -6,13 +6,34 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		20E867EF2DB3F91F0026AD57 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 20E867EE2DB3F91F0026AD57 /* Lottie */; };
+		6F9354C93F0533CD29DBDEBA /* Pods_AezScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35BD4AA88B2E034724F7C48 /* Pods_AezScanner.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		1BD3FA29056737B234DAB153 /* Pods-AezScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AezScanner.release.xcconfig"; path = "Target Support Files/Pods-AezScanner/Pods-AezScanner.release.xcconfig"; sourceTree = "<group>"; };
 		2081A0782DB164BE0072F451 /* AezScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AezScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		730B5E6E68B5B4F22E4909F2 /* Pods-AezScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AezScanner.debug.xcconfig"; path = "Target Support Files/Pods-AezScanner/Pods-AezScanner.debug.xcconfig"; sourceTree = "<group>"; };
+		D35BD4AA88B2E034724F7C48 /* Pods_AezScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AezScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2081A0CD2DB172830072F451 /* Exceptions for "AezScanner" folder in "AezScanner" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 2081A0772DB164BE0072F451 /* AezScanner */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2081A07A2DB164BE0072F451 /* AezScanner */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2081A0CD2DB172830072F451 /* Exceptions for "AezScanner" folder in "AezScanner" target */,
+			);
 			path = AezScanner;
 			sourceTree = "<group>";
 		};
@@ -23,6 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20E867EF2DB3F91F0026AD57 /* Lottie in Frameworks */,
+				6F9354C93F0533CD29DBDEBA /* Pods_AezScanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -34,6 +57,8 @@
 			children = (
 				2081A07A2DB164BE0072F451 /* AezScanner */,
 				2081A0792DB164BE0072F451 /* Products */,
+				CFE4C309A5D5A81B92B1EC46 /* Pods */,
+				B47463E19D25E791989ACC76 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -45,6 +70,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B47463E19D25E791989ACC76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35BD4AA88B2E034724F7C48 /* Pods_AezScanner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CFE4C309A5D5A81B92B1EC46 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				730B5E6E68B5B4F22E4909F2 /* Pods-AezScanner.debug.xcconfig */,
+				1BD3FA29056737B234DAB153 /* Pods-AezScanner.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -52,9 +94,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2081A0862DB164BF0072F451 /* Build configuration list for PBXNativeTarget "AezScanner" */;
 			buildPhases = (
+				34556EF6AB03006700E19C83 /* [CP] Check Pods Manifest.lock */,
 				2081A0742DB164BE0072F451 /* Sources */,
 				2081A0752DB164BE0072F451 /* Frameworks */,
 				2081A0762DB164BE0072F451 /* Resources */,
+				E243DA37E76512449667E6F6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -65,6 +109,7 @@
 			);
 			name = AezScanner;
 			packageProductDependencies = (
+				20E867EE2DB3F91F0026AD57 /* Lottie */,
 			);
 			productName = AezScanner;
 			productReference = 2081A0782DB164BE0072F451 /* AezScanner.app */;
@@ -94,6 +139,9 @@
 			);
 			mainGroup = 2081A06F2DB164BD0072F451;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				20E867ED2DB3F91F0026AD57 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2081A0792DB164BE0072F451 /* Products */;
 			projectDirPath = "";
@@ -113,6 +161,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		34556EF6AB03006700E19C83 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AezScanner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E243DA37E76512449667E6F6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AezScanner/Pods-AezScanner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AezScanner/Pods-AezScanner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AezScanner/Pods-AezScanner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2081A0742DB164BE0072F451 /* Sources */ = {
@@ -246,20 +336,32 @@
 		};
 		2081A0872DB164BF0072F451 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 730B5E6E68B5B4F22E4909F2 /* Pods-AezScanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AezScanner/AezScanner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AezScanner/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"AezScanner/5. Preview Content\"";
 				DEVELOPMENT_TEAM = 8Q8855SSVY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AezScanner/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AezScanner;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Access to the blurtooth function is required to be able to scan nearby devices.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "To scan devices on your network";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = StartScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -275,20 +377,32 @@
 		};
 		2081A0882DB164BF0072F451 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BD3FA29056737B234DAB153 /* Pods-AezScanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AezScanner/AezScanner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AezScanner/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"AezScanner/5. Preview Content\"";
 				DEVELOPMENT_TEAM = 8Q8855SSVY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AezScanner/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AezScanner;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Access to the blurtooth function is required to be able to scan nearby devices.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "To scan devices on your network";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = StartScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,6 +438,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		20E867ED2DB3F91F0026AD57 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		20E867EE2DB3F91F0026AD57 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20E867ED2DB3F91F0026AD57 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2081A0702DB164BE0072F451 /* Project object */;
 }
