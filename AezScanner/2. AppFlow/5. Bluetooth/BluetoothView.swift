@@ -2,52 +2,78 @@ import SwiftUI
 
 struct BluetoothView: View {
     @StateObject
-    private var bluetoothManager = BluetoothManager()
+    private var bluetoothViewModel = BluetoothViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
-                scanButton
-                deviceList
+                scanButton()
+                managerViews()
             }
             .navigationTitle("Bluetooth Scanner")
         }
+        .navigationViewStyle(.stack)
     }
     
-    private var scanButton: some View {
-        Button(action: {
-            if bluetoothManager.isScanning {
-                bluetoothManager.stopScan()
+    @ViewBuilder
+    private func managerViews() -> some View {
+        if bluetoothViewModel.devices.isEmpty {
+            description()
+        } else {
+            if bluetoothViewModel.isScanning {
+                loadView()
             } else {
-                bluetoothManager.startScan()
+                BluetoothDeviceList(devices: bluetoothViewModel.devices)
             }
-        }) {
-            Text(bluetoothManager.isScanning ? "Stop Scan" : "Start Scan")
+        }
+    }
+    
+    @ViewBuilder
+    private func description() -> some View {
+        Text("Press the Start button to initiate a search for Bluetooth devices nearby")
+            .foregroundStyle(.secondary)
+            .multilineTextAlignment(.center)
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    @ViewBuilder
+    private func loadView() -> some View {
+        VStack {
+            LottieView(animationName: "Sync", loopMode: .loop)
+                .frame(width: 150, height: 150)
+            
+            ProgressLineView(duration: bluetoothViewModel.scanDuration)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    @ViewBuilder
+    private func scanButton() -> some View {
+        Button() {
+            bluetoothViewModel.startScan()
+        } label: {
+            Text(buttonText())
                 .padding()
                 .frame(maxWidth: .infinity)
-                .background(bluetoothManager.isScanning ? Color.red : Color.blue)
+                .background(bluetoothViewModel.isScanning
+                            ? .red
+                            : .customPurple)
                 .foregroundColor(.white)
                 .cornerRadius(10)
                 .padding()
         }
+        .disabled(bluetoothViewModel.isScanning)
     }
     
-    private var deviceList: some View {
-        List(bluetoothManager.devices) { device in
-            DeviceRow(device: device)
-                .onTapGesture {
-                    if device.state == .connected {
-                        bluetoothManager.disconnect(from: device)
-                    } else {
-                        bluetoothManager.connect(to: device)
-                    }
-                }
-        }
-        .listStyle(PlainListStyle())
+    
+    
+    private func buttonText() -> String {
+        bluetoothViewModel.isScanning
+        ? "Scanning..."
+        : bluetoothViewModel.devices.isEmpty ? "Start Scan" : "Rescan"
     }
 }
-
-
 
 #Preview {
     BluetoothView()

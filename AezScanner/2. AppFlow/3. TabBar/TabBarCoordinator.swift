@@ -6,7 +6,7 @@ final class TabBarCoordinator: ObservableObject {
     }
     
     @Published
-    private(set) var currentView: Int = 1
+    var currentView: Int = 1
     
     func chooseView(_ view: Int) {
         currentView = view

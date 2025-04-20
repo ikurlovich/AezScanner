@@ -7,11 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20D1DA1B2DB535880061209E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 20D1DA1A2DB535880061209E /* RealmSwift */; };
+		20D1DA662DB537180061209E /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 20D1DA1A2DB535880061209E /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		20E867EF2DB3F91F0026AD57 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 20E867EE2DB3F91F0026AD57 /* Lottie */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		20D1DA672DB537180061209E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				20D1DA662DB537180061209E /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		20BE343F2DB43F52000E2618 /* AezScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = AezScanner.app; path = "/Users/iliakurlovich/Desktop/Development/11. Aezakmi/AezScanner/build/Debug-iphoneos/AezScanner.app"; sourceTree = "<absolute>"; };
+		20D1DA1C2DB536410061209E /* AezScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = AezScanner.app; path = "/Users/iliakurlovich/Desktop/Development/11. Aezakmi/AezScanner/build/Debug-iphoneos/AezScanner.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -40,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D1DA1B2DB535880061209E /* RealmSwift in Frameworks */,
 				20E867EF2DB3F91F0026AD57 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +81,7 @@
 				2081A0742DB164BE0072F451 /* Sources */,
 				2081A0752DB164BE0072F451 /* Frameworks */,
 				2081A0762DB164BE0072F451 /* Resources */,
+				20D1DA672DB537180061209E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -75,9 +93,10 @@
 			name = AezScanner;
 			packageProductDependencies = (
 				20E867EE2DB3F91F0026AD57 /* Lottie */,
+				20D1DA1A2DB535880061209E /* RealmSwift */,
 			);
 			productName = AezScanner;
-			productReference = 20BE343F2DB43F52000E2618 /* AezScanner.app */;
+			productReference = 20D1DA1C2DB536410061209E /* AezScanner.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -106,6 +125,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				20E867ED2DB3F91F0026AD57 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				20D1DA192DB535880061209E /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2081A06F2DB164BD0072F451;
@@ -361,6 +381,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		20D1DA192DB535880061209E /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		20E867ED2DB3F91F0026AD57 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
@@ -372,6 +400,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		20D1DA1A2DB535880061209E /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20D1DA192DB535880061209E /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		20E867EE2DB3F91F0026AD57 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 20E867ED2DB3F91F0026AD57 /* XCRemoteSwiftPackageReference "lottie-ios" */;

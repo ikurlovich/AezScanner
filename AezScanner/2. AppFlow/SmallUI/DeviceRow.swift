@@ -39,6 +39,8 @@ struct DeviceRow: View {
             return .red
         case .disconnecting:
             return .yellow
+        case .unknown:
+            return . blue
         @unknown default:
             return .gray
         }
