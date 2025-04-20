@@ -13,7 +13,7 @@ struct TabBarView: View {
                 case 3:
                     HistoryView()
                 default:
-                    EmptyView()
+                    LanView()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

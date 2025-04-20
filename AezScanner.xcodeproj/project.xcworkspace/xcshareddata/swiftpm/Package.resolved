@@ -1,5 +1,5 @@
 {
-  "originHash" : "fd01a7f709aabcf1408c2758bb4065807ea4ac071d77f88e2a2861d32b142a6e",
+  "originHash" : "441b1c8863f1a318f86f871262442bbf86a467e315d71970c2b130d03624132b",
   "pins" : [
     {
       "identity" : "lottie-ios",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "047aa81b77adcbf583a966dfef620d17650cc656",
         "version" : "4.5.1"
+      }
+    },
+    {
+      "identity" : "mmlanscannerspm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/getmemd/MMLANScannerSPM.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c6ef984dff9d7f9f00fa2b661e4fee13ced4927b"
       }
     },
     {

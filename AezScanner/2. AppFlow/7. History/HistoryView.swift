@@ -37,15 +37,28 @@ struct HistoryView: View {
     }
     
     @ViewBuilder
+    private func lanSessionList() -> some View {
+        LanDeviceList(devices: historyViewModel.currentSession?.wifiDevices ?? [])
+    }
+    
+    @ViewBuilder
     private func sessionsList() -> some View {
         List {
             ForEach(historyViewModel.sessions) { session in
                 NavigationLink {
-                    bluetoothSessionsList()
-                        .navigationTitle(String(historyViewModel.currentSession?.creationDate.formatted() ?? ""))
-                        .onAppear {
-                            historyViewModel.chooseSession(session)
-                        }
+                    if historyViewModel.currentSession?.sessionType == .bluetooth {
+                        bluetoothSessionsList()
+                            .navigationTitle(String(historyViewModel.currentSession?.creationDate.formatted() ?? ""))
+                            .onAppear {
+                                historyViewModel.chooseSession(session)
+                            }
+                    } else {
+                        lanSessionList()
+                            .navigationTitle(String(historyViewModel.currentSession?.creationDate.formatted() ?? ""))
+                            .onAppear {
+                                historyViewModel.chooseSession(session)
+                            }
+                    }
                 } label: {
                     HStack {
                         Text(session.creationDate.formatted())

@@ -1,16 +1,16 @@
 import Foundation
 import Combine
 
-final class BluetoothViewModel: ObservableObject {
-    private let bluetoothManager: BluetoothManager = .shared
+final class WiFiViewModel: ObservableObject {
+    private let networkScannerManager: NetworkScannerManager = .shared
     private let sessionStorageService: SessionStorageService = .shared
     
     let scanDuration: TimeInterval = 5
     
     @Published
-    var isScanning: Bool = false
+    private(set) var isScanning = false
     @Published
-    var devices: [BluetoothDevice] = []
+    private(set) var devices: [WifiDevice] = []
     
     private var cancellables: Set<AnyCancellable> = []
     
@@ -20,24 +20,15 @@ final class BluetoothViewModel: ObservableObject {
     }
     
     func startScan() {
-        bluetoothManager.startScan()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + scanDuration) {
-            self.bluetoothManager.stopScan()
-            self.sessionStorageService.addNewSession(sessionType: .bluetooth, bluetoothDevices: self.devices)
-        }
+        networkScannerManager.startScan(completion: addNewSession)
     }
     
-    func connect(to device: BluetoothDevice) {
-        bluetoothManager.connect(to: device)
-    }
-    
-    func disconnect(from device: BluetoothDevice) {
-        bluetoothManager.disconnect(from: device)
+    private func addNewSession() {
+        self.sessionStorageService.addNewSession(sessionType: .wifi, wifiDevices: self.devices)
     }
     
     private func observeIsScanning() {
-        bluetoothManager
+        networkScannerManager
             .$isScanning
             .sink { [weak self] in
                 self?.isScanning = $0
@@ -46,7 +37,7 @@ final class BluetoothViewModel: ObservableObject {
     }
     
     private func observeDevices() {
-        bluetoothManager
+        networkScannerManager
             .$devices
             .sink { [weak self] in
                 self?.devices = $0

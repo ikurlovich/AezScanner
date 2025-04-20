@@ -9,6 +9,7 @@ final class SessionStorageService {
     
     @Published
     private(set) var sessions: [Session] = []
+    
     private var cancellables: Set<AnyCancellable> = []
     private let realm = try! Realm()
     
@@ -69,7 +70,6 @@ final class SessionStorageService {
         }
     }
 
-    
     private func saveToRealm(session: Session) {
         let realmSession = RealmSession(from: session)
         do {
@@ -86,8 +86,6 @@ final class SessionStorageService {
         self.sessions = realmSessions.map { Session(from: $0) }
     }
 }
-
-
 
 final class RealmSession: Object {
     @Persisted(primaryKey: true) var id: UUID
@@ -117,7 +115,19 @@ final class RealmBluetoothDevice: Object {
 
 final class RealmWifiDevice: Object {
     @Persisted(primaryKey: true) var id: UUID
+    @Persisted var ipAddress: String
+    @Persisted var hostName: String?
+    @Persisted var macAddress: String?
+    
+    convenience init(from device: WifiDevice) {
+        self.init()
+        self.id = device.id
+        self.ipAddress = device.ipAddress
+        self.hostName = device.hostName
+        self.macAddress = device.macAddress
+    }
 }
+
 
 extension Session {
     init(from realm: RealmSession) {
@@ -125,7 +135,7 @@ extension Session {
         self.sessionType = realm.sessionType
         self.creationDate = realm.creationDate
         self.bluetoothDevices = realm.bluetoothDevices.map { BluetoothDevice(from: $0) }
-        self.wifiDevices = realm.wifiDevices.map { WifiDevice(id: $0.id) }
+        self.wifiDevices = realm.wifiDevices.map { WifiDevice(from: $0) }
     }
 }
 
@@ -151,7 +161,7 @@ extension RealmSession {
         }
         
         if let wifiDevices = session.wifiDevices {
-            self.wifiDevices.append(objectsIn: wifiDevices.map { RealmWifiDevice(value: ["id": $0.id]) })
+            self.wifiDevices.append(objectsIn: wifiDevices.map { RealmWifiDevice(from: $0) })
         }
     }
 }
@@ -166,9 +176,6 @@ extension RealmBluetoothDevice {
         self.state = device.state
     }
 }
-
-
-//______________________________________
 
 enum SessionType: String, Codable {
     case bluetooth = "Bluetooth"
@@ -185,6 +192,18 @@ struct Session: Identifiable, Codable {
 
 struct WifiDevice: Identifiable, Codable {
     let id: UUID
+    let ipAddress: String
+    let hostName: String?
+    let macAddress: String?
+}
+
+extension WifiDevice {
+    init(from realm: RealmWifiDevice) {
+        self.id = realm.id
+        self.ipAddress = realm.ipAddress
+        self.hostName = realm.hostName
+        self.macAddress = realm.macAddress
+    }
 }
 
 struct BluetoothDevice: Identifiable, Codable {
