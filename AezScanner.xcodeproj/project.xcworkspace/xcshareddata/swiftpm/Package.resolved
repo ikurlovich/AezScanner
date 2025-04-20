@@ -1,0 +1,42 @@
+{
+  "originHash" : "441b1c8863f1a318f86f871262442bbf86a467e315d71970c2b130d03624132b",
+  "pins" : [
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios",
+      "state" : {
+        "revision" : "047aa81b77adcbf583a966dfef620d17650cc656",
+        "version" : "4.5.1"
+      }
+    },
+    {
+      "identity" : "mmlanscannerspm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/getmemd/MMLANScannerSPM.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c6ef984dff9d7f9f00fa2b661e4fee13ced4927b"
+      }
+    },
+    {
+      "identity" : "realm-core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-core.git",
+      "state" : {
+        "revision" : "cccb3ca9e26ec452a29f2f0d4050d1e38b8a3d43",
+        "version" : "14.14.0"
+      }
+    },
+    {
+      "identity" : "realm-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-swift",
+      "state" : {
+        "branch" : "master",
+        "revision" : "712c52af6ae1aaca9aec83f1a14f4e5d48e3a24c"
+      }
+    }
+  ],
+  "version" : 3
+}
